@@ -1,0 +1,17 @@
+artellapipe.libs.maya package
+=============================
+
+Subpackages
+-----------
+
+.. toctree::
+
+   artellapipe.libs.maya.managers
+
+Module contents
+---------------
+
+.. automodule:: artellapipe.libs.maya
+   :members:
+   :undoc-members:
+   :show-inheritance:
