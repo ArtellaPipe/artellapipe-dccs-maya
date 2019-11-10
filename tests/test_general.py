@@ -2,12 +2,12 @@
 # -*- coding: utf-8 -*-
 
 """
-Module that contains general tests for artellapipe
+Module that contains general tests for artellapipe-libs-maya
 """
 
 import pytest
 
-from artellapipe.libs.maya import __version__
+from artellapipe.dccs.maya import __version__
 
 
 def test_version():

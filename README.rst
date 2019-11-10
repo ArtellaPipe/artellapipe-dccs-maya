@@ -1,4 +1,4 @@
-# artellapipe-libs-maya
+# artellapipe-ddcs-maya
 ============================================================
 
 Maya libraries for ArtellaPipe

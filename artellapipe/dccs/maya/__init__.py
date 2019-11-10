@@ -17,14 +17,11 @@ def init(do_reload=False):
 
     logging.config.fileConfig(get_logging_config(), disable_existing_loggers=False)
 
-    import sentry_sdk
-    sentry_sdk.init("https://fb3880746e1240e099368d3b2b21419f@sentry.io/1780995")
-
     from tpPyUtils import importer
 
-    class ArtellaMayaLib(importer.Importer, object):
+    class ArtellaMayaDcc(importer.Importer, object):
         def __init__(self):
-            super(ArtellaMayaLib, self).__init__(module_name='artellapipe.libs.maya')
+            super(ArtellaMayaDcc, self).__init__(module_name='artellapipe.dccs.maya')
 
         def get_module_path(self):
             """
@@ -38,17 +35,13 @@ def init(do_reload=False):
                 try:
                     mod_dir = os.path.dirname(__file__)
                 except Exception:
-                    try:
-                        import tpDccLib
-                        mod_dir = tpDccLib.__path__[0]
-                    except Exception:
-                        return None
+                    return None
 
             return mod_dir
 
     packages_order = []
 
-    artella_maya_lib = importer.init_importer(importer_class=ArtellaMayaLib, do_reload=False)
+    artella_maya_lib = importer.init_importer(importer_class=ArtellaMayaDcc, do_reload=False)
     artella_maya_lib.import_packages(order=packages_order, only_packages=False)
     if do_reload:
         artella_maya_lib.reload_all()

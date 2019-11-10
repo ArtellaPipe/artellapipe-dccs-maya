@@ -1,5 +1,5 @@
 from setuptools import setup
 
-from artellapipe.libs.maya import __version__
+from artellapipe.dccs.maya import __version__
 
 setup()

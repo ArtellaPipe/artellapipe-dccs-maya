@@ -1,1 +1,1 @@
-include artellapipe/libs/maya/__logging__.ini
+include artellapipe/dccs/maya/__logging__.ini
