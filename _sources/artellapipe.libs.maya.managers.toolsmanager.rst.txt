@@ -1,7 +1,0 @@
-artellapipe.libs.maya.managers.toolsmanager module
-==================================================
-
-.. automodule:: artellapipe.libs.maya.managers.toolsmanager
-   :members:
-   :undoc-members:
-   :show-inheritance:

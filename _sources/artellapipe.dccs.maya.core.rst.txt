@@ -1,0 +1,17 @@
+artellapipe.dccs.maya.core package
+==================================
+
+Submodules
+----------
+
+.. toctree::
+
+   artellapipe.dccs.maya.core.toolbox
+
+Module contents
+---------------
+
+.. automodule:: artellapipe.dccs.maya.core
+   :members:
+   :undoc-members:
+   :show-inheritance:

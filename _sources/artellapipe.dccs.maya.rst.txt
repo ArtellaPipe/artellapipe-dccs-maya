@@ -1,4 +1,4 @@
-artellapipe.libs.maya package
+artellapipe.dccs.maya package
 =============================
 
 Subpackages
@@ -6,12 +6,12 @@ Subpackages
 
 .. toctree::
 
-   artellapipe.libs.maya.managers
+   artellapipe.dccs.maya.core
 
 Module contents
 ---------------
 
-.. automodule:: artellapipe.libs.maya
+.. automodule:: artellapipe.dccs.maya
    :members:
    :undoc-members:
    :show-inheritance:

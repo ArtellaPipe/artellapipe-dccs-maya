@@ -6,7 +6,7 @@ Subpackages
 
 .. toctree::
 
-   artellapipe.libs
+   artellapipe.dccs
 
 Module contents
 ---------------

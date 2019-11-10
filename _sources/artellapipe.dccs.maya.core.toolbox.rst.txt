@@ -1,0 +1,7 @@
+artellapipe.dccs.maya.core.toolbox module
+=========================================
+
+.. automodule:: artellapipe.dccs.maya.core.toolbox
+   :members:
+   :undoc-members:
+   :show-inheritance:
