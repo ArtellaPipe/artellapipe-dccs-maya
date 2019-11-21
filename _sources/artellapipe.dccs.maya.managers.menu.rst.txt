@@ -1,0 +1,7 @@
+artellapipe.dccs.maya.managers.menu module
+==========================================
+
+.. automodule:: artellapipe.dccs.maya.managers.menu
+   :members:
+   :undoc-members:
+   :show-inheritance:

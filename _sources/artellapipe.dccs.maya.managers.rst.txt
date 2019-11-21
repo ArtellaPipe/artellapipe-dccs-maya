@@ -1,0 +1,17 @@
+artellapipe.dccs.maya.managers package
+======================================
+
+Submodules
+----------
+
+.. toctree::
+
+   artellapipe.dccs.maya.managers.menu
+
+Module contents
+---------------
+
+.. automodule:: artellapipe.dccs.maya.managers
+   :members:
+   :undoc-members:
+   :show-inheritance:
