@@ -7,3 +7,6 @@ coveralls
 sphinx
 sphinx_rtd_theme
 tpPyUtils
+tpDccLib
+tpQtLib
+tpMayaLib
