@@ -55,7 +55,7 @@ class MayaPlayblastsManager(playblasts.PlayblastsManager, object):
             'sound': maya.cmds.timeControl(time_control, query=True, sound=True) or None
         }
 
-    def capture_scene(self, options):
+    def capture_scene(self, **options):
         path = super(MayaPlayblastsManager, self).capture_scene(options=options)
         path = playblast.fix_playblast_output_path(path)
 
