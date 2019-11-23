@@ -108,7 +108,8 @@ class MayaPlayblastsManager(playblasts.PlayblastsManager, object):
                 # format
                 if format != "image" and raw_frame_numbers:
                     LOGGER.warning(
-                        "Capturing to image format with raw frame numbers is not supported. Ignoring raw frame numbers...")
+                        "Capturing to image format with raw frame numbers is not supported. "
+                        "Ignoring raw frame numbers...")
                     raw_frame_numbers = False
 
         output = maya.cmds.playblast(
