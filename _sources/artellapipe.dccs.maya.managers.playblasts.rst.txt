@@ -1,0 +1,7 @@
+artellapipe.dccs.maya.managers.playblasts module
+================================================
+
+.. automodule:: artellapipe.dccs.maya.managers.playblasts
+   :members:
+   :undoc-members:
+   :show-inheritance:
