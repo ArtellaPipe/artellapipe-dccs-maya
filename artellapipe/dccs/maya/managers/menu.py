@@ -160,6 +160,9 @@ class ArtellaMayaMenuManager(core_menu.ArtellaMenuManager, object):
     def _menu_creator(self, parent_menu, data):
         menu = self.get_menu(data['label'])
         if menu is None and data.get('type', '') == 'menu':
+            only_dev = data.get('only_dev', False)
+            if only_dev and not self._project.is_dev():
+                return
             menu = parent_menu.addMenu(data['label'])
             menu.setObjectName(data['label'])
             menu.setTearOffEnabled(True)
@@ -170,6 +173,9 @@ class ArtellaMayaMenuManager(core_menu.ArtellaMenuManager, object):
 
         for i in iter(data['children']):
             action_type = i.get('type', 'command')
+            only_dev = i.get('only_dev', False)
+            if only_dev and not self._project.is_dev():
+                continue
             if action_type == 'separator':
                 self._menu.addSeparator()
                 continue
@@ -185,6 +191,7 @@ class ArtellaMayaMenuManager(core_menu.ArtellaMenuManager, object):
     def _add_action(self, item_info, parent):
         tool_id = item_info['id']
         tool_type = item_info.get('type', 'tool')
+
         tool_data = None
         if tool_type == 'command' or tool_type == 'tool':
             tool_data = artellapipe.ToolsMgr().get_tool_data_from_id(tool_id)
@@ -246,4 +253,5 @@ class ArtellaMayaMenuManagerSingleton(ArtellaMayaMenuManager, object):
         ArtellaMayaMenuManager.__init__(self)
 
 
+artellapipe.register.register_class('Menu', ArtellaMayaMenuManager)
 artellapipe.register.register_class('MenuMgr', ArtellaMayaMenuManagerSingleton)
