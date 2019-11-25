@@ -241,7 +241,6 @@ class ArtellaMayaMenuManager(core_menu.ArtellaMenuManager, object):
 
         parent.addAction(tagged_action)
 
-
     def _add_tool_action(self, item_info, parent):
         tool_id = item_info.get('id', None)
         tool_type = item_info.get('type', 'tool')
