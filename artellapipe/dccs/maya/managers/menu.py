@@ -143,9 +143,19 @@ class ArtellaMayaMenuManager(core_menu.ArtellaMenuManager, object):
         self.create_project_description_menu()
         self.create_main_menu()
 
-        menu_data = artellapipe.ToolsMgr().get_tool_menus() or dict()
+        menus_config = self.config.get('menus', default=list())
+        if menus_config:
+            for menu_data in menus_config:
+                for _, data in menu_data.items():
+                    for i in iter(data):
+                        if isinstance(i, string_types) and i == 'separator':
+                            self._menu.addSeparator()
+                            continue
+                        self._menu_creator(self._menu, i)
 
-        for tool_path, data in menu_data.items():
+        # Tools Menus
+        tools_menu_data = artellapipe.ToolsMgr().get_tool_menus() or dict()
+        for tool_path, data in tools_menu_data.items():
             for i in iter(data):
                 if isinstance(i, string_types) and i == 'separator':
                     self._menu.addSeparator()
@@ -189,15 +199,58 @@ class ArtellaMayaMenuManager(core_menu.ArtellaMenuManager, object):
             self._add_action(i, menu)
 
     def _add_action(self, item_info, parent):
-        tool_id = item_info['id']
+
+        item_type = item_info.get('type', 'tool')
+        if item_type == 'tool':
+            self._add_tool_action(item_info, parent)
+        else:
+            self._add_menu_item_action(item_info, parent)
+
+    def _add_menu_item_action(self, item_info, parent):
+        menu_item_id = item_info.get('id', None)
+
+        menu_item_ui = item_info.get('ui', None)
+        if not menu_item_ui:
+            LOGGER.warning('Menu Item "{}" has not a ui specified!. Skipping ...'.format(menu_item_id))
+            return
+        menu_item_command = item_info.get('command', None)
+        if not menu_item_command:
+            LOGGER.warning('Menu Item "{}" does not defines a command to execute. Skipping ...'.format(menu_item_id))
+            return
+        menu_item_language = item_info.get('language', 'python')
+
+        menu_item_icon_name = menu_item_ui.get('icon', 'artella')
+        menu_item_icon = resource.ResourceManager().icon(menu_item_icon_name)
+        menu_item_label = menu_item_ui.get('label', 'No_label')
+        is_checkable = menu_item_ui.get('is_checkable', False)
+        is_checked = menu_item_ui.get('is_checked', False)
+        tagged_action = menu.SearchableTaggedAction(label=menu_item_label, icon=menu_item_icon, parent=self._parent)
+        if is_checkable:
+            tagged_action.setCheckable(is_checkable)
+            tagged_action.setChecked(is_checked)
+            tagged_action.connect(partial(self._launch_command, menu_item_command, menu_item_language))
+            tagged_action.toggled.connect(partial(self._launch_command, menu_item_command, menu_item_language))
+            if menu_item_ui.get('load_on_startup', False):
+                self._launch_command(menu_item_command, menu_item_language, is_checked)
+        else:
+            tagged_action.triggered.connect(partial(self._launch_command, menu_item_command, menu_item_language))
+            if menu_item_ui.get('load_on_startup', False):
+                self._launch_command(menu_item_command, menu_item_language)
+
+        tagged_action.tags = set(item_info.get('tags', []))
+
+        parent.addAction(tagged_action)
+
+
+    def _add_tool_action(self, item_info, parent):
+        tool_id = item_info.get('id', None)
         tool_type = item_info.get('type', 'tool')
 
-        tool_data = None
-        if tool_type == 'command' or tool_type == 'tool':
-            tool_data = artellapipe.ToolsMgr().get_tool_data_from_id(tool_id)
+        tool_data = artellapipe.ToolsMgr().get_tool_data_from_id(tool_id)
         if tool_data is None:
             LOGGER.warning('Menu : Failed to find Tool: {}, type {}'.format(tool_id, tool_type))
             return
+
         tool_icon = None
         tool_icon_name = tool_data['config'].data.get('icon', None)
         if tool_icon_name:
@@ -211,19 +264,9 @@ class ArtellaMayaMenuManager(core_menu.ArtellaMenuManager, object):
             tagged_action.setCheckable(is_checkable)
             tagged_action.setChecked(is_checked)
             tagged_action.connect(partial(self._launch_tool, tool_data))
-            if tool_type == 'command':
-                tagged_action.toggled.connect(partial(self._launch_tool, tool_data))
-                if tool_menu_ui_data.get('load_on_startup', False):
-                    self._launch_tool(tool_data, is_checked)
-            elif tool_type == 'tool':
-                tagged_action.toggled.connect(partial(self._launch_tool_by_id, tool_id))
+            tagged_action.toggled.connect(partial(self._launch_tool_by_id, tool_id))
         else:
-            if tool_type == 'command':
-                tagged_action.triggered.connect(partial(self._launch_tool, tool_data))
-                if tool_menu_ui_data.get('load_on_startup', False):
-                    self._launch_tool(tool_data)
-            elif tool_type == 'tool':
-                tagged_action.triggered.connect(partial(self._launch_tool_by_id, tool_id))
+            tagged_action.triggered.connect(partial(self._launch_tool_by_id, tool_id))
 
         icon = tool_menu_ui_data.get('icon', None)
         if icon:
@@ -232,7 +275,6 @@ class ArtellaMayaMenuManager(core_menu.ArtellaMenuManager, object):
         tagged_action.tags = set(tool_data['config'].data.get('tags', []))
 
         parent.addAction(tagged_action)
-        LOGGER.debug('Added Action: {}'.format(label))
 
     def _get_parent_menubar(self):
         if not self._parent:
