@@ -1,0 +1,7 @@
+artellapipe.dccs.maya.managers.dependencies module
+==================================================
+
+.. automodule:: artellapipe.dccs.maya.managers.dependencies
+   :members:
+   :undoc-members:
+   :show-inheritance:
