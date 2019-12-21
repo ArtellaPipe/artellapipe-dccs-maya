@@ -253,4 +253,5 @@ def applied_camera_options(options, panel, config):
                 tp.Dcc.set_attribute_value(node=camera, attribute_name=option, attribute_value=value)
 
 
-artellapipe.register.register_class('PlayblastsMgr', ArtellaMayaPlayblastsManagerSingleton)
+if tp.is_maya():
+    artellapipe.register.register_class('PlayblastsMgr', ArtellaMayaPlayblastsManagerSingleton)

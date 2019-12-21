@@ -172,4 +172,5 @@ class ArtellaMayaDependenciesManagerSingleton(ArtellaMayaDependenciesManager, ob
         ArtellaMayaDependenciesManager.__init__(self)
 
 
-artellapipe.register.register_class('DepsMgr', ArtellaMayaDependenciesManagerSingleton)
+if tp.is_maya():
+    artellapipe.register.register_class('DepsMgr', ArtellaMayaDependenciesManagerSingleton)

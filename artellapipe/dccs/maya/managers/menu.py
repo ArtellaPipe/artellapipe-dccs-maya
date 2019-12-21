@@ -294,5 +294,6 @@ class ArtellaMayaMenuManagerSingleton(ArtellaMayaMenuManager, object):
         ArtellaMayaMenuManager.__init__(self)
 
 
-artellapipe.register.register_class('Menu', ArtellaMayaMenuManager)
-artellapipe.register.register_class('MenuMgr', ArtellaMayaMenuManagerSingleton)
+if tp.is_maya():
+    artellapipe.register.register_class('Menu', ArtellaMayaMenuManager)
+    artellapipe.register.register_class('MenuMgr', ArtellaMayaMenuManagerSingleton)
