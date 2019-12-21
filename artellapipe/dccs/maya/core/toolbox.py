@@ -11,4 +11,5 @@ class MayaToolBox(toolbox.ToolBox, object):
         super(MayaToolBox, self).__init__(project=project, parent=parent)
 
 
-artellapipe.register.register_class('ToolBox', MayaToolBox)
+if tp.is_maya():
+    artellapipe.register.register_class('ToolBox', MayaToolBox)
