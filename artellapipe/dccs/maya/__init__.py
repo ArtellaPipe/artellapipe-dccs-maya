@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-Initialization module for artellapipe-libs-maya
+Initialization module for artellapipe-dccs-maya
 """
 
 import os
