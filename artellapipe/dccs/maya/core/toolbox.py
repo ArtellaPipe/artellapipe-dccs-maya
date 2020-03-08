@@ -1,4 +1,4 @@
-import tpDccLib as tp
+import tpDcc as tp
 
 import artellapipe.register
 from artellapipe.core import toolbox

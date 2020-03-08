@@ -15,15 +15,15 @@ __email__ = "tpovedatd@gmail.com"
 import logging
 import contextlib
 
-import tpDccLib as tp
-from tpPyUtils import decorators
+import tpDcc as tp
+from tpDcc.libs.python import decorators
 
 import artellapipe.register
 from artellapipe.managers import playblasts
 
 if tp.is_maya():
-    import tpMayaLib as maya
-    from tpMayaLib.core import gui, playblast
+    import tpDcc.dccs.maya as maya
+    from tpDcc.dccs.maya.core import gui, playblast
 
 LOGGER = logging.getLogger()
 
@@ -66,8 +66,8 @@ class MayaPlayblastsManager(playblasts.PlayblastsManager, object):
         Implements base PlayblastsManager _generate_playblast_function
         """
 
-        width = kwargs.get('width')
-        height = kwargs.get('height')
+        width = int(kwargs.get('width'))
+        height = int(kwargs.get('height'))
         compression = kwargs.get('compression', 'H.264')
         format = kwargs.get('format', 'qt')
         percent = kwargs.get('percent', 100)
@@ -75,6 +75,10 @@ class MayaPlayblastsManager(playblasts.PlayblastsManager, object):
         viewer = kwargs.get('viewer', None)
         start_time = kwargs.get('start_frame')
         end_time = kwargs.get('end_frame')
+        frame = kwargs.get('frame', None)
+        if frame:
+            start_time = frame
+            end_time = frame
         off_screen = kwargs.get('off_screen', False)
         show_ornaments = kwargs.get('show_ornaments', True)
         force_overwrite = kwargs.get('overwrite', True)
@@ -145,6 +149,7 @@ def applied_viewport_options(options, panel, config):
     Context manager for applying options to panel
     :param options: dict
     :param panel: str
+    :param config:
     """
 
     viewport_options = config.get('options', 'viewport')

@@ -16,8 +16,8 @@ import os
 import logging
 import traceback
 
-import tpDccLib as tp
-from tpPyUtils import decorators
+import tpDcc as tp
+from tpDcc.libs.python import decorators
 
 import artellapipe
 import artellapipe.register
@@ -26,7 +26,7 @@ from artellapipe.managers import dependencies
 LOGGER = logging.getLogger()
 
 if tp.is_maya():
-    from tpMayaLib.core import parser
+    from tpDcc.dccs.maya.core import parser
 
     class ArtellaMayaAsciiParser(parser.MayaAsciiParser, object):
         def __init__(self, stream):
