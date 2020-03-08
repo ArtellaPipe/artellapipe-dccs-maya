@@ -17,7 +17,7 @@ def init(do_reload=False, dev=False):
 
     logging.config.fileConfig(get_logging_config(), disable_existing_loggers=False)
 
-    from tpPyUtils import importer
+    from tpDcc.libs.python import importer
 
     class ArtellaMayaDcc(importer.Importer, object):
         def __init__(self, debug=False):
