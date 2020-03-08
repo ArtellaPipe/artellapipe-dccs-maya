@@ -7,8 +7,8 @@ Submodules
 .. toctree::
 
    artellapipe.dccs.maya.managers.dependencies
-   artellapipe.dccs.maya.managers.menu
    artellapipe.dccs.maya.managers.playblasts
+   artellapipe.dccs.maya.managers.shots
 
 Module contents
 ---------------

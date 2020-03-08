@@ -1,0 +1,7 @@
+artellapipe.dccs.maya.managers.shots module
+===========================================
+
+.. automodule:: artellapipe.dccs.maya.managers.shots
+   :members:
+   :undoc-members:
+   :show-inheritance:

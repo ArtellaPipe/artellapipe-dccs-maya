@@ -6,6 +6,7 @@ Submodules
 
 .. toctree::
 
+   artellapipe.dccs.maya.core.sequencer
    artellapipe.dccs.maya.core.toolbox
 
 Module contents
