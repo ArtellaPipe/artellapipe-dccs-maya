@@ -5,6 +5,7 @@ Submodules
 ----------
 
 .. toctree::
+   :maxdepth: 4
 
    artellapipe.dccs.maya.managers.dependencies
    artellapipe.dccs.maya.managers.playblasts
