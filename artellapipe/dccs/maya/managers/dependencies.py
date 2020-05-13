@@ -75,7 +75,7 @@ if tp.is_maya():
             return self._invalid_paths
 
         def on_file_reference(self, path):
-            path = artellapipe.FilesMgr().fix_path(path)
+            path = artellapipe.FilesMgr().fix_path(path, clean_path=False)
             if path not in self._references:
                 if not os.path.isfile(path):
                     if path not in self._invalid_paths:
@@ -87,7 +87,7 @@ if tp.is_maya():
 
             # GPU Cache File Path
             if name == 'cfn':
-                value = artellapipe.FilesMgr().fix_path(value)
+                value = artellapipe.FilesMgr().fix_path(value, clean_path=False)
                 if value not in self._gpu_cache_paths:
                     if not os.path.isfile(value):
                         if value not in self._invalid_paths:
