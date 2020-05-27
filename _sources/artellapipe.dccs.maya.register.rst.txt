@@ -1,0 +1,7 @@
+artellapipe.dccs.maya.register module
+=====================================
+
+.. automodule:: artellapipe.dccs.maya.register
+   :members:
+   :undoc-members:
+   :show-inheritance:

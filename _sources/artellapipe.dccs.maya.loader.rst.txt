@@ -1,0 +1,7 @@
+artellapipe.dccs.maya.loader module
+===================================
+
+.. automodule:: artellapipe.dccs.maya.loader
+   :members:
+   :undoc-members:
+   :show-inheritance:

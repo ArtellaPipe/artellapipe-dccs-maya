@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>artellapipe.dccs package &mdash; artellapipe 0.0.l documentation</title>
+  <title>artellapipe.dccs.maya.loader module &mdash; artellapipe 0.0.l documentation</title>
   
 
   
@@ -35,8 +35,8 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="artellapipe.dccs.maya package" href="artellapipe.dccs.maya.html" />
-    <link rel="prev" title="artellapipe package" href="artellapipe.html" /> 
+    <link rel="next" title="artellapipe.dccs.maya.register module" href="artellapipe.dccs.maya.register.html" />
+    <link rel="prev" title="artellapipe.dccs.maya.managers.shots module" href="artellapipe.dccs.maya.managers.shots.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -89,7 +89,7 @@
 <li class="toctree-l1 current"><a class="reference internal" href="modules.html">artellapipe</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="artellapipe.html">artellapipe package</a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="artellapipe.html#subpackages">Subpackages</a><ul class="current">
-<li class="toctree-l4 current"><a class="current reference internal" href="#">artellapipe.dccs package</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="artellapipe.dccs.html">artellapipe.dccs package</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="artellapipe.html#module-artellapipe">Module contents</a></li>
@@ -146,13 +146,17 @@
         
           <li><a href="artellapipe.html">artellapipe package</a> &raquo;</li>
         
-      <li>artellapipe.dccs package</li>
+          <li><a href="artellapipe.dccs.html">artellapipe.dccs package</a> &raquo;</li>
+        
+          <li><a href="artellapipe.dccs.maya.html">artellapipe.dccs.maya package</a> &raquo;</li>
+        
+      <li>artellapipe.dccs.maya.loader module</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="_sources/artellapipe.dccs.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/artellapipe.dccs.maya.loader.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -166,41 +170,21 @@
 
            <div itemprop="articleBody">
             
-  <div class="section" id="artellapipe-dccs-package">
-<h1>artellapipe.dccs package<a class="headerlink" href="#artellapipe-dccs-package" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="subpackages">
-<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this headline">¶</a></h2>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="artellapipe.dccs.maya.html">artellapipe.dccs.maya package</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="artellapipe.dccs.maya.html#subpackages">Subpackages</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="artellapipe.dccs.maya.core.html">artellapipe.dccs.maya.core package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="artellapipe.dccs.maya.core.html#submodules">Submodules</a></li>
-<li class="toctree-l4"><a class="reference internal" href="artellapipe.dccs.maya.core.html#module-artellapipe.dccs.maya.core">Module contents</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="artellapipe.dccs.maya.managers.html">artellapipe.dccs.maya.managers package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="artellapipe.dccs.maya.managers.html#submodules">Submodules</a></li>
-<li class="toctree-l4"><a class="reference internal" href="artellapipe.dccs.maya.managers.html#module-artellapipe.dccs.maya.managers">Module contents</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="artellapipe.dccs.maya.html#submodules">Submodules</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="artellapipe.dccs.maya.loader.html">artellapipe.dccs.maya.loader module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="artellapipe.dccs.maya.register.html">artellapipe.dccs.maya.register module</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="artellapipe.dccs.maya.html#module-artellapipe.dccs.maya">Module contents</a></li>
-</ul>
-</li>
-</ul>
-</div>
-</div>
-<div class="section" id="module-artellapipe.dccs">
-<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-artellapipe.dccs" title="Permalink to this headline">¶</a></h2>
-<p>Initialization module for artellapipe-dccs</p>
-</div>
+  <div class="section" id="module-artellapipe.dccs.maya.loader">
+<span id="artellapipe-dccs-maya-loader-module"></span><h1>artellapipe.dccs.maya.loader module<a class="headerlink" href="#module-artellapipe.dccs.maya.loader" title="Permalink to this headline">¶</a></h1>
+<p>Initialization module for artellapipe-dccs-maya</p>
+<dl class="py function">
+<dt id="artellapipe.dccs.maya.loader.create_logger">
+<code class="sig-prename descclassname">artellapipe.dccs.maya.loader.</code><code class="sig-name descname">create_logger</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dev</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#artellapipe.dccs.maya.loader.create_logger" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns logger of current module</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="artellapipe.dccs.maya.loader.init">
+<code class="sig-prename descclassname">artellapipe.dccs.maya.loader.</code><code class="sig-name descname">init</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dev</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#artellapipe.dccs.maya.loader.init" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initializes module</p>
+</dd></dl>
+
 </div>
 
 
@@ -215,10 +199,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="artellapipe.dccs.maya.html" class="btn btn-neutral float-right" title="artellapipe.dccs.maya package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="artellapipe.dccs.maya.register.html" class="btn btn-neutral float-right" title="artellapipe.dccs.maya.register module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="artellapipe.html" class="btn btn-neutral float-left" title="artellapipe package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="artellapipe.dccs.maya.managers.shots.html" class="btn btn-neutral float-left" title="artellapipe.dccs.maya.managers.shots module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

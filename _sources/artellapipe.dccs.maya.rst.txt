@@ -10,6 +10,15 @@ Subpackages
    artellapipe.dccs.maya.core
    artellapipe.dccs.maya.managers
 
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   artellapipe.dccs.maya.loader
+   artellapipe.dccs.maya.register
+
 Module contents
 ---------------
 
