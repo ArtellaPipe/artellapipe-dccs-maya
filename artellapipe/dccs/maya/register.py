@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-Register module for tpDcc-dccs-maya
+Register module for artellapipe-dccs-maya
 """
 
 from __future__ import print_function, division, absolute_import
