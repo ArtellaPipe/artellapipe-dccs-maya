@@ -9,7 +9,6 @@ Submodules
 
    artellapipe.dccs.maya.managers.dependencies
    artellapipe.dccs.maya.managers.playblasts
-   artellapipe.dccs.maya.managers.shots
 
 Module contents
 ---------------
