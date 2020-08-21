@@ -120,7 +120,7 @@ else:
         pass
 
 
-class ArtellaMayaDependenciesManager(dependencies.ArtellaDependenciesManager, object):
+class ArtellaMayaDependenciesManager(dependencies.DependenciesManager, object):
     def __init__(self):
         super(ArtellaMayaDependenciesManager, self).__init__()
 
